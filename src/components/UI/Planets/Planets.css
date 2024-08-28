@@ -1,0 +1,153 @@
+.planets-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 25px;
+
+    opacity: 0;
+    animation: ani 0.2s forwards;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.planets-search-bar-wrapper {
+    width: 60%;
+    margin-left: 20%;
+    padding: 10px 10px 10px 10px;
+    border: 3px solid bisque;
+    box-shadow: 3px 3px 6px rgb(157, 131, 100);
+    border-radius: 10px;
+    background-color: rgb(83, 83, 83);
+    color: bisque;
+    margin-bottom: 25px;
+    display: flex;
+}
+
+.planets-search-bar-logo, .planets-search-bar-logo img {
+    width: 30px;
+    height: 30px;
+    opacity: 0.5;
+    margin-right: 10px;
+}
+
+.planets-search-bar-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.planets-search-bar-input input {
+    width: 100%;
+    border: none;
+    background-color: rgb(83, 83, 83);
+    color: bisque;
+    font-size: 23px;
+}
+
+.planets-card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.planet-card {
+    width: 48%;
+    border: 3px solid bisque;
+    box-shadow: 3px 3px 6px rgb(157, 131, 100);
+    border-radius: 10px;
+    background-color: rgb(83, 83, 83);
+    color: bisque;
+
+    padding: 10px 20px 20px 20px;
+    margin: 0 1% 10px 1%;
+}
+
+.planet-card-title {
+    text-align: center;
+    font-size: 23px;
+}
+
+.planet-card-info {
+    display: flex;
+    margin-top: 10px;
+}
+
+.planet-info-logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+
+}
+
+.planet-info-logo img {
+    width: 130px;
+    height: 130px;
+}
+
+.planet-info-text li {
+    font-size: 18px;
+    margin-bottom: 3px;
+}
+
+.page-btns {
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.page-status, .page-btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 3px solid bisque;
+    background-color: rgb(0, 66, 37);
+    color: bisque;
+
+    text-align: center;
+    line-height: 37px;
+
+    margin: 0 5px 0 5px;
+}
+
+.page-btn {
+    cursor: pointer;
+    font-size: 18px;
+    box-shadow: 1px 1px 3px rgb(157, 131, 100);
+    transition: 0.1s linear;
+}
+
+.page-btn:hover {
+    box-shadow: 3px 3px 6px rgb(157, 131, 100);
+    transition: 0.1s linear;
+}
+
+.add-route-node-btn img {
+    padding: 7px 7px 7px 7px;
+}
+
+.to-goods-btn, .add-route-node-btn {
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgb(83, 83, 83);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.to-goods-btn img, .add-route-node-btn img {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px rgb(0, 0, 0);
+    transition: 0.1s linear;
+}
+
+.to-goods-btn img:hover, .add-route-node-btn img:hover {
+    box-shadow: 3px 3px 9px rgb(162, 130, 91);
+    transition: 0.1s linear;
+}

@@ -1,0 +1,75 @@
+.table-wrapper {
+    width: 80%;
+    margin-left: 10%;
+    border: 3px solid bisque;
+    box-shadow: 3px 3px 6px rgb(157, 131, 100);
+    border-radius: 10px;
+    background-color: rgb(83, 83, 83);
+    color: bisque;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+
+    opacity: 0;
+    animation: ani 0.2s forwards;
+}
+
+.table-wrapper hr {
+    border: 1px solid bisque;
+    background-color: bisque;
+}
+
+@keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 10px;
+}
+
+.all-goods {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+
+.product {
+    transition: 0.1s linear;
+}
+
+.product:hover {
+    box-shadow: 0px 4px 1px rgb(157, 131, 100);
+    cursor: pointer;
+    transition: 0.1s linear;
+}
+
+.id {
+    width: 10px;
+}
+
+.sort-btns label {
+    cursor: pointer;
+}
+
+.sort-btns input {
+    margin: 0 5px 0 5px;
+
+    appearance: none;
+
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+  
+    position: relative;
+    cursor: pointer;
+}
+
+.sort-btns input:checked {
+    border: 5px solid rgb(153, 0, 43);
+}

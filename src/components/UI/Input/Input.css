@@ -1,0 +1,82 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.inputs input {
+    width: 60px;
+    height: 90px;
+    border-radius: 10px;
+    background-color: rgb(0, 66, 37);
+    border: 3px solid bisque;
+    color: bisque;
+    font-size: 48px;
+    text-align: center;
+    box-shadow: 3px 3px 6px rgb(157, 131, 100);
+    transition: 0.1s linear;
+}
+
+.inputs input:focus {
+    transition: 0.1s linear;
+    box-shadow: 3px 3px 6px rgb(0, 66, 37);
+}
+
+.inputs input:hover {
+    transition: 0.1s linear;
+    box-shadow: 3px 3px 6px rgb(0, 66, 37);
+}
+
+.inputs-group {
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.inputs {
+    padding: 25px 0 25px 0;
+}
+
+.inputs input {
+    margin: 0 10px 0 10px;
+}
+
+.zone-btns {
+    margin: 0 0 0 10px;
+    padding: 25px 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.zone label {
+    color: rgb(0, 66, 37);
+    font-size: 18px;
+    margin-left: 5px;
+    transition: 0.1s linear;
+    cursor: pointer;
+}
+
+.zone:hover {
+    transition: 0.1s linear;
+    text-shadow: 1px 1px 1px rgb(0, 66, 37);
+}
+
+.zone input {
+    appearance: none;
+
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+  
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+  
+    position: relative;
+}
+
+.zone input:checked {
+    border: 6px solid rgb(0, 66, 37);
+}
