@@ -44,7 +44,6 @@ function App() {
       state.routeSheet = TradePathPlotter({'route': state.routeSheet['route'], 
         'engineTier': state.engineTier, 'goodsToSearch': state.goodsToSearch,
         'isIllegal': state.isIllegal, 'isRebuildNeeded': state.isRebuildNeeded,});
-      update(renderStatus * -1);
     }
 
     update(renderStatus * -1);

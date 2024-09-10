@@ -28,6 +28,7 @@ export default function TradePathPlotter(props) {
     return pathSheet;
 }
 
+/*
 function calcJumpsCount(src, dest, engineTier) {
     return Math.round(calcPlanetDistance(src, dest) / engineTier);
 }
@@ -51,6 +52,7 @@ function getNewRouteNodes(src, dest, engineTier) {
     newNodes.push(dest);
     return newNodes;
 }
+*/
 
 function getGoods(src, dest, goodsCount, isIllegal) {
     const srcPlanetFlags = EXPLORED_PLANETS[src].flags.split(' ');
