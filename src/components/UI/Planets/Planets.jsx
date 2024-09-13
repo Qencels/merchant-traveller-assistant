@@ -1,4 +1,4 @@
-import './Planets.css'
+import styles from './Planets.module.css'
 import { EXPLORED_PLANETS, PLANETS_ATMOSPHERE, PLANETS_GOVERNMENT, PLANETS_HYDROGRAPHICS, PLANETS_LAW, PLANETS_POPULATION, PLANETS_SIZE } from '../../../Constants';
 import rp1 from '../../../assets/random-planet-1.png'
 import rp2 from '../../../assets/random-planet-2.png'
@@ -10,8 +10,9 @@ import astrs from '../../../assets/asteroids.png'
 import toGoods from '../../../assets/to-goods-btn-ico.png'
 import addNode from '../../../assets/add-route-node-btn-ico.png'
 import search from '../../../assets/search-ico.png'
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import { debounce } from 'lodash'
+import classNames from 'classnames';
 
 const planetsImg = [rp1, rp2, rp3, rp4, rp5, rp6, astrs];
 const CARDS_ON_PAGE = 6;
@@ -19,7 +20,7 @@ const CARDS_ON_PAGE = 6;
 export default function Planets(props) {
 
   const [page, setPage] = useState(0);
-  const planets = EXPLORED_PLANETS.slice((page * CARDS_ON_PAGE), (page * CARDS_ON_PAGE + CARDS_ON_PAGE));
+  let planets = EXPLORED_PLANETS.slice((page * CARDS_ON_PAGE), (page * CARDS_ON_PAGE + CARDS_ON_PAGE));
 
   const findPlanet = (planetName) => {
     const findedPlanet = EXPLORED_PLANETS.find(item => item.name.toUpperCase().includes(planetName.trim().toUpperCase()));
@@ -30,37 +31,37 @@ export default function Planets(props) {
     pageChange(itemsPage, setPage);
   }
 
-  const debouncedSearch = useCallback(debounce(findPlanet, 300), []);
+  const debouncedSearch = debounce(findPlanet, 300);
 
   if (props.mode !== 1) return (<div></div>);
 
   return (
-    <div className='planets-wrapper'>
+    <div className={styles.planetsWrapper}>
 
-      <div className='planets-search-bar-wrapper'>
-        <div className='planets-search-bar-logo'>
+      <div className={styles.planetsSearchBarWrapper}>
+        <div className={styles.planetsSearchBarLogo}>
           <img src={search} alt="search"/>
         </div>
 
-        <div className='planets-search-bar-input'>
-          <form>
+        <div className={styles.planetsSearchBarInput}>
+          <form onSubmit={(e) => e.preventDefault()}>
             <input type='search' placeholder='Planet name...' autoFocus={true}
               onChange={(e) => debouncedSearch(e.target.value)}></input>
           </form>
         </div>
       </div>
       
-      <div className='planets-card-wrapper'>
+      <div className={styles.planetsCardWrapper}>
         { planets.map((item) => (
 
-          <div className={'planet-card'} key={`pc-${item.id}`}>
-            <div className='planet-card-title' key={`${item.id}-name`}>{item.name} ({item.planetCode.split(',').slice(0,8)})</div>
+          <div className={styles.planetCard} key={`pc-${item.id}`}>
+            <div className={styles.planetCardTitle} key={`${item.id}-name`}>{item.name} ({item.planetCode.split(',').slice(0,8)})</div>
 
-            <div className='planet-card-info' key={`pi-${item.id}`}>
+            <div className={styles.planetCardInfo} key={`pi-${item.id}`}>
 
-              <div className='planet-info-logo' key={`pi-${item.id}-logo`}>
+              <div className={styles.planetInfoLogo} key={`pi-${item.id}-logo`}>
 
-                <div className='add-route-node-btn' key={`${item.id}-add-route-node-btn`}>
+                <div className={styles.addRouteNodeBtn} key={`${item.id}-add-route-node-btn`}>
                   <img src={addNode} alt='addNode' key={`${item.id}-add-route-node-btn-ico`} 
                       title='Add a path node' onClick={(e) => {
 
@@ -79,14 +80,14 @@ export default function Planets(props) {
                 {/* The ingenious formula below gives a picture of an asteroid only when the planet size is 0. It's funny, don't be so critical */}
                 <img src={planetsImg.at((parseInt(item.planetCode[2], 16) - 1) % (planetsImg.length - 1))} alt='planet' key={`${item.id}-logo`} />
 
-                <div className='to-goods-btn' key={`${item.id}-to-goods-btn`}>
+                <div className={styles.toGoodsBtn} key={`${item.id}-to-goods-btn`}>
                   <img src={toGoods} alt='toGoods' key={`${item.id}-to-goods-btn-ico`} 
                     title='To goods' onClick={() => props.setCurrentPlanet(item.planetCode, item.flags)} />
                 </div>
 
               </div>
 
-              <div className='planet-info-text' key={`pi-${item.id}-text`}>
+              <div className={styles.planetInfoText} key={`pi-${item.id}-text`}>
                 <ul>
                   <li key={`${item.id}-sectorId`}>Sector ID: {item.sectorID}</li>
 
@@ -118,12 +119,12 @@ export default function Planets(props) {
         )) }
       </div>
 
-      <div className='page-btns'>
-        <button className='prev-btn page-btn' onClick={() => pageChange(page - 1, setPage)}>{'<'}</button>
-        <div className='page-status'>
+      <div className={styles.pageBtns}>
+        <button className={classNames(styles.prevBtn, styles.pageBtn)} onClick={() => pageChange(page - 1, setPage)}>{'<'}</button>
+        <div className={styles.pageStatus}>
           <p>{page + 1}</p>
         </div>
-        <button className='next-btn page-btn' onClick={() => pageChange(page + 1, setPage)}>{'>'}</button>
+        <button className={classNames(styles.nextBtn, styles.pageBtn)} onClick={() => pageChange(page + 1, setPage)}>{'>'}</button>
       </div>
 
     </div>

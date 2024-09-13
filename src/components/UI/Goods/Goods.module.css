@@ -1,4 +1,4 @@
-.table-wrapper {
+.tableWrapper {
     width: 80%;
     margin-left: 10%;
     border: 3px solid bisque;
@@ -15,7 +15,7 @@
     animation: ani 0.2s forwards;
 }
 
-.table-wrapper hr {
+.tableWrapper hr {
     border: 1px solid bisque;
     background-color: bisque;
 }
@@ -25,13 +25,13 @@
     100% {opacity: 1;}
 }
 
-.info-header {
+.infoHeader {
     display: flex;
     justify-content: space-between;
     padding: 10px 10px 10px 10px;
 }
 
-.all-goods {
+.allGoods {
     width: 100%;
     padding: 10px 10px 10px 10px;
 }
@@ -50,11 +50,11 @@
     width: 10px;
 }
 
-.sort-btns label {
+.sortBtns label {
     cursor: pointer;
 }
 
-.sort-btns input {
+.sortBtns input {
     margin: 0 5px 0 5px;
 
     appearance: none;
@@ -70,6 +70,6 @@
     cursor: pointer;
 }
 
-.sort-btns input:checked {
+.sortBtns input:checked {
     border: 5px solid rgb(153, 0, 43);
 }

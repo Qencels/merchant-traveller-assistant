@@ -1,5 +1,5 @@
 import React from 'react'
-import './Header.css'
+import styles from './Header.module.css'
 
 //<span onClick={() => props.getMode(3)} className='item' style={{textDecoration: 'line-through'}}>Add a new entry</span>
 
@@ -8,12 +8,12 @@ export default function Header(props) {
 
     <header>
 
-      <div className='content'>
+      <div className={styles.content}>
 
-        <div className='nav'>
-          <span onClick={() => props.getMode(0)} className='item'>Goods</span>
-          <span onClick={() => props.getMode(1)} className='item'>Planets</span>
-          <span onClick={() => props.getMode(2)} className='item'>Routes</span>
+        <div className={styles.nav}>
+          <span onClick={() => props.getMode(0)} className={styles.item}>Goods</span>
+          <span onClick={() => props.getMode(1)} className={styles.item}>Planets</span>
+          <span onClick={() => props.getMode(2)} className={styles.item}>Routes</span>
         </div>
 
       </div>

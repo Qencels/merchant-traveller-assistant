@@ -28,7 +28,7 @@ button:focus {
     box-shadow: 3px 3px 6px rgb(0, 66, 37);
 }
 
-.inputs-group {
+.inputsGroup {
     width: 80%;
     margin-left: 10%;
     display: flex;
@@ -43,7 +43,7 @@ button:focus {
     margin: 0 10px 0 10px;
 }
 
-.zone-btns {
+.zoneBtns {
     margin: 0 0 0 10px;
     padding: 25px 0 25px 0;
     display: flex;

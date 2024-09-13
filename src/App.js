@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import './App.css';
 import Header from './components/UI/Header/Header';
 import InputsGroup from './components/UI/Input/InputsGroup';
@@ -11,7 +11,7 @@ import TradePathPlotter from './components/TradePathPlotter/TradePathPlotter';
 
 function App() {
 
-  let [state,] = useState({
+  const vault = useRef({
     'currentPlanetCode': 'A,0,0,0,0,0,0,0,G',
     'planetFlags': ['all', 'Gz'],
     'goods': [],
@@ -29,79 +29,79 @@ function App() {
   let [renderStatus, update] = useState(-1);
 
   function setPlanetFlags() {
-    return PlanetTypesSelector({'code': state.currentPlanetCode});
+    return PlanetTypesSelector({'code': vault.current.currentPlanetCode});
   }
 
   function setGoods() {
-    return GoodsGetter({'planetFlags': state.planetFlags, 'sort': state.sort});
+    return GoodsGetter({'planetFlags': vault.current.planetFlags, 'sort': vault.current.sort});
   }
 
   const getMode = (value) => {
-    state.selectedMode = value;
-    state.defaultCodeSubstitution = false;
+    vault.current.selectedMode = value;
+    vault.current.defaultCodeSubstitution = false;
 
-    if (state.selectedMode === 2) {
-      state.routeSheet = TradePathPlotter({'route': state.routeSheet['route'], 
-        'engineTier': state.engineTier, 'goodsToSearch': state.goodsToSearch,
-        'isIllegal': state.isIllegal, 'isRebuildNeeded': state.isRebuildNeeded,});
+    if (vault.current.selectedMode === 2) {
+      vault.current.routeSheet = TradePathPlotter({'route': vault.current.routeSheet['route'], 
+        'engineTier': vault.current.engineTier, 'goodsToSearch': vault.current.goodsToSearch,
+        'isIllegal': vault.current.isIllegal, 'isRebuildNeeded': vault.current.isRebuildNeeded,});
     }
 
     update(renderStatus * -1);
   }
 
   const getSortType = (value) => {
-    state.sort = value;
-    state.goods = setGoods();
-    state.defaultCodeSubstitution = false;
+    vault.current.sort = value;
+    vault.current.goods = setGoods();
+    vault.current.defaultCodeSubstitution = false;
 
     update(renderStatus * -1);
   }
 
   const getCode = (value) => {
-    state.currentPlanetCode = value;
-    state.planetFlags = setPlanetFlags();
-    state.goods = setGoods();
-    state.defaultCodeSubstitution = false;
+    vault.current.currentPlanetCode = value;
+    vault.current.planetFlags = setPlanetFlags();
+    vault.current.goods = setGoods();
+    vault.current.defaultCodeSubstitution = false;
 
     update(renderStatus * -1);
   }
 
   const setCurrentPlanet = (code, flags) => {
-    state.selectedMode = 0; // goods
-    state.currentPlanetCode = code;
-    state.planetFlags = flags.split(' ');
-    state.goods = setGoods();
-    state.defaultCodeSubstitution = true; 
+    vault.current.selectedMode = 0; // goods
+    vault.current.currentPlanetCode = code;
+    vault.current.planetFlags = flags.split(' ');
+    vault.current.goods = setGoods();
+    vault.current.defaultCodeSubstitution = true; 
 
     update(renderStatus * -1);
   }
 
   const changeNode = (planetID) => {
-    if (!state.routeSheet['route'].has(planetID)) { state.routeSheet['route'].add(planetID); } 
-    else { state.routeSheet['route'].delete(planetID); }
+    if (!vault.current.routeSheet['route'].has(planetID)) { vault.current.routeSheet['route'].add(planetID); } 
+    else { vault.current.routeSheet['route'].delete(planetID); }
 
-    if (state.selectedMode === 2) {
-      state.routeSheet = TradePathPlotter({'route': state.routeSheet['route'], 
-        'engineTier': state.engineTier, 'goodsToSearch': state.goodsToSearch,
-        'isIllegal': state.isIllegal, 'isRebuildNeeded': state.isRebuildNeeded,});
+    if (vault.current.selectedMode === 2) {
+      vault.current.routeSheet = TradePathPlotter({'route': vault.current.routeSheet['route'], 
+        'engineTier': vault.current.engineTier, 'goodsToSearch': vault.current.goodsToSearch,
+        'isIllegal': vault.current.isIllegal, 'isRebuildNeeded': vault.current.isRebuildNeeded,});
       update(renderStatus * -1);
     }
   }
 
   const clearRoute = () => {
-    state.routeSheet['route'].clear();
+    vault.current.routeSheet['route'].clear();
   }
 
   const setSettings = (settingsObj) => {
-    state.engineTier = settingsObj.engineTier;
-    state.isIllegal = settingsObj.isIllegal
-    state.isRebuildNeeded = settingsObj.isRebuildNeeded
-    state.goodsToSearch = settingsObj.itemsToVisualize;
+    vault.current.engineTier = settingsObj.engineTier;
+    vault.current.isIllegal = settingsObj.isIllegal
+    vault.current.isRebuildNeeded = settingsObj.isRebuildNeeded
+    vault.current.goodsToSearch = settingsObj.itemsToVisualize;
 
-    if (state.selectedMode === 2) {
-      state.routeSheet = TradePathPlotter({'route': state.routeSheet['route'], 
-        'engineTier': state.engineTier, 'goodsToSearch': state.goodsToSearch,
-        'isIllegal': state.isIllegal, 'isRebuildNeeded': state.isRebuildNeeded,});
+    if (vault.current.selectedMode === 2) {
+      vault.current.routeSheet = TradePathPlotter({'route': vault.current.routeSheet['route'], 
+        'engineTier': vault.current.engineTier, 'goodsToSearch': vault.current.goodsToSearch,
+        'isIllegal': vault.current.isIllegal, 'isRebuildNeeded': vault.current.isRebuildNeeded,});
       update(renderStatus * -1);
     }
   }
@@ -110,10 +110,10 @@ function App() {
     <div className='App'>
 
       <Header getMode={getMode} />
-      <InputsGroup mode={state.selectedMode} getCode={getCode} value={state.currentPlanetCode} substFlag={state.defaultCodeSubstitution} />
-      <Goods mode={state.selectedMode} goods={state.goods} codes={state.planetFlags} getSortType={getSortType} pcode={state.currentPlanetCode}/>
-      <Planets mode={state.selectedMode} setCurrentPlanet={setCurrentPlanet} changeNode={changeNode} />
-      <Routes mode={state.selectedMode} deleteNode={changeNode} routeSheet={state.routeSheet} clearRoute={clearRoute} getSettings={setSettings} />
+      <InputsGroup mode={vault.current.selectedMode} getCode={getCode} value={vault.current.currentPlanetCode} substFlag={vault.current.defaultCodeSubstitution} />
+      <Goods mode={vault.current.selectedMode} goods={vault.current.goods} codes={vault.current.planetFlags} getSortType={getSortType} pcode={vault.current.currentPlanetCode}/>
+      <Planets mode={vault.current.selectedMode} setCurrentPlanet={setCurrentPlanet} changeNode={changeNode} />
+      <Routes mode={vault.current.selectedMode} deleteNode={changeNode} routeSheet={vault.current.routeSheet} clearRoute={clearRoute} getSettings={setSettings} />
 
     </div>
   );

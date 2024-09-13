@@ -1,5 +1,4 @@
 import React from 'react'
-import './Input.css'
 
 export default function SingleInput(props) {
     return (

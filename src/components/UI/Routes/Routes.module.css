@@ -1,4 +1,4 @@
-.route-wrapper {
+.routeWrapper {
     width: 80%;
     font-size: 18px;
     margin-left: 10%;
@@ -15,27 +15,27 @@
     100% {opacity: 1;}
 }
 
-.error-msg {
+.errorMsg {
     margin-top: 25px;
     font-size: 1.5em;
     color: rgb(0, 66, 37);
     text-align: center;
 }
 
-.route-render {
+.routeRender {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.route-node {
+.routeNode {
     display: flex;
     width: 150px;
     height: 120px;
     margin-bottom: 25px;
 }
 
-.logo-wrapper img {
+.logoWrapper img {
     width: 100px;
     height: 100px;
     cursor: pointer;
@@ -44,17 +44,17 @@
     transition: 0.1s linear;
 }
 
-.logo-wrapper img:hover {
+.logoWrapper img:hover {
     box-shadow: 3px 3px 6px rgb(162, 130, 91);
     transition: 0.1s linear;
 }
 
-.logo-wrapper {
+.logoWrapper {
     color: rgb(0, 66, 37);
     text-align: center;
 }
 
-.arrow-wrapper, .clear-wrapper {
+.arrowWrapper, .clearWrapper {
     width: 50px;
     height: 100px;
     display: flex;
@@ -65,17 +65,17 @@
     animation: ani 1.0s forwards;
 }
 
-.arrow-wrapper img, .clear-wrapper img {
+.arrowWrapper img, .clearWrapper img {
     width: 50px;
     height: 50px;
     padding: 5px 5px 5px 5px;
 }
 
-.clear-wrapper img {
+.clearWrapper img {
     cursor: pointer;
 }
 
-.tables-settings {
+.tablesSettings {
     padding: 10px 10px 10px 10px;
     color: bisque;
     border: 3px solid bisque;
@@ -91,13 +91,13 @@ input[type="checkbox"] {
     background-color: aqua;
 }
 
-.tables-settings .textbox {
+.tablesSettings .textbox {
     background-color: rgb(83, 83, 83);
     color: bisque;
     width: 35px;
 }
 
-.pseudo-confirm-btn {
+.pseudoConfirmBtn {
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 1px 1px 3px rgb(0, 0, 0);
@@ -105,7 +105,7 @@ input[type="checkbox"] {
     transition: 0.1s linear;
 }
 
-.pseudo-confirm-btn:hover {
+.pseudoConfirmBtn:hover {
     box-shadow: 3px 3px 3px rgb(162, 130, 91);
     transition: 0.1s linear;
 }
@@ -114,13 +114,13 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-.tables-wrapper {
+.tablesWrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.path-segment-wrapper {
+.pathSegmentWrapper {
     max-width: 48%;
     padding: 10px 10px 10px 10px;
     color: bisque;
@@ -137,7 +137,7 @@ input[type="checkbox"] {
     width: 10px;
 }
 
-.path-segment-wrapper td {
+.pathSegmentWrapper td {
     padding-right: 5px;
 }
 
@@ -145,6 +145,6 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-.path-segment-wrapper caption {
+.pathSegmentWrapper caption {
     color: rgb(83, 83, 83);
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SingleInput from './SingleInput'
+import styles from './Input.module.css'
 
 export default function InputsGroup(props) {
 
@@ -58,8 +59,8 @@ export default function InputsGroup(props) {
     }
 
     return (
-        <form className='inputs-group'>
-            <div className='inputs'>
+        <form className={styles.inputsGroup}>
+            <div className={styles.inputs}>
                 <SingleInput id='si-0' autoFocus={true} onChange={e => changeEventFunction(e, 0)} placeholder='A'/>
                 <SingleInput id='si-1' onChange={e => changeEventFunction(e, 1)} placeholder='0'/>
                 <SingleInput id='si-2' onChange={e => changeEventFunction(e, 2)} placeholder='0'/>
@@ -69,8 +70,8 @@ export default function InputsGroup(props) {
                 <SingleInput id='si-6' onChange={e => changeEventFunction(e, 6)} placeholder='0'/>
                 <SingleInput id='si-7' onChange={e => changeEventFunction(e, 7)} placeholder='0'/>
             </div>
-            <div className='zone-btns'>
-                <div className='zone'>
+            <div className={styles.zoneBtns}>
+                <div className={styles.zone}>
                     <input id='green-zone' 
                         type='radio' 
                         name='zs' 
@@ -80,7 +81,7 @@ export default function InputsGroup(props) {
                     />
                     <label htmlFor='green-zone'>Green zone (default)</label>
                 </div>
-                <div className='zone'>
+                <div className={styles.zone}>
                     <input id='amber-zone' 
                         type='radio' 
                         name='zs' 
@@ -89,7 +90,7 @@ export default function InputsGroup(props) {
                     />
                     <label htmlFor='amber-zone'>Amber zone</label>  
                 </div>
-                <div className='zone'>
+                <div className={styles.zone}>
                     <input id='red-zone' 
                         type='radio' 
                         name='zs' 

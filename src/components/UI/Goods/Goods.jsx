@@ -1,5 +1,5 @@
 import React from 'react'
-import './Goods.css'
+import styles from './Goods.module.css'
 
 export default function Goods(props) {
 
@@ -28,14 +28,14 @@ export default function Goods(props) {
     }
 
     return (
-        <div className='table-wrapper'>
-            <div className='info-header'>
-                <div className="flags">
+        <div className={styles.tableWrapper}>
+            <div className={styles.infoHeader}>
+                <div className={styles.flags}>
                     <span>{`Planet's trade codes (Gz,Az,Rz - zones, all - default): ${props.codes}`}</span>
                     <p>{`${additionalMod}`}</p>
                 </div>
 
-                <div className="sort-btns">
+                <div className={styles.sortBtns}>
                     <form>
                         <span>Sorting by: </span>
                         <input id='off-btn' 
@@ -67,7 +67,7 @@ export default function Goods(props) {
                 </div>
             </div>
             <hr></hr>
-            <table cellSpacing={'10px'} className='all-goods'>
+            <table cellSpacing={'10px'} className={styles.allGoods}>
                 <thead>
                     <tr key={`tr-head`}>
                         <th key={'th-id'}>ID</th>
@@ -81,14 +81,14 @@ export default function Goods(props) {
                 </thead>
                 <tbody>
                 { availableGoods.map(
-                    (item) => (<tr className='product' key={`tr-body-${item.id}`}>
-                        <td className='id' key={`td-id-${item.id}`} >{item.id}</td>
-                        <td className='type' key={`td-type-${item.id}`} >{item.type}</td>
-                        <td className='availability' key={`td-availability-${item.id}`} >{item.availability}</td>
-                        <td className='tons' key={`td-tons-${item.id}`} >{item.tons}</td>
-                        <td className='bp' key={`td-bp-${item.id}`} >{item.bp}</td>
-                        <td className='pdm' key={`td-pdm-${item.id}`} >{getStringFromDMs(item.pdm)}</td>
-                        <td className='sdm' key={`td-sdm-${item.id}`} >{getStringFromDMs(item.sdm)}</td>
+                    (item) => (<tr className={styles.product} key={`tr-body-${item.id}`}>
+                        <td className={styles.id} key={`td-id-${item.id}`} >{item.id}</td>
+                        <td className={styles.type} key={`td-type-${item.id}`} >{item.type}</td>
+                        <td className={styles.availability} key={`td-availability-${item.id}`} >{item.availability}</td>
+                        <td className={styles.tons} key={`td-tons-${item.id}`} >{item.tons}</td>
+                        <td className={styles.bp} key={`td-bp-${item.id}`} >{item.bp}</td>
+                        <td className={styles.pdm} key={`td-pdm-${item.id}`} >{getStringFromDMs(item.pdm)}</td>
+                        <td className={styles.sdm} key={`td-sdm-${item.id}`} >{getStringFromDMs(item.sdm)}</td>
                     </tr>)
                 ) }
                 </tbody>
