@@ -19,3 +19,11 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### Docker
+
+When you're ready, start your application by running:
+`docker compose up --build`.
+Your application will be available at http://localhost:80.
+or
+build your image, e.g.: `docker build -t myapp .`.
